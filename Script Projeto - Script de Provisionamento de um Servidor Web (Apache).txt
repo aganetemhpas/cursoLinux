@@ -1,0 +1,40 @@
+// Criando Diretórios
+
+mkdir publico adm ven sec
+
+//Criando Grupos
+
+groupadd GRP_ADM GRP_VEN GRP_SEC
+
+
+//Criando usuários e Adiciona no Grupo
+
+useradd carlos -c "Carlos" -s /bin/bash -m -p $(openssl passwd -crypt Senha123) -G GRP_ADM
+passwd carlos -e
+
+useradd maria -c "Maria" -s /bin/bash -m -p $(openssl passwd -crypt Senha123) -G GRP_ADM
+passwd carlos -e
+
+useradd joao -c "Joao" -s /bin/bash -m -p $(openssl passwd -crypt Senha123) -G GRP_ADM
+passwd carlos -e
+
+useradd debora -c "Debora" -s /bin/bash -m -p $(openssl passwd -crypt Senha123) -G GRP_VEN
+passwd carlos -e
+
+useradd sebastiana -c "Sebastiana" -s /bin/bash -m -p $(openssl passwd -crypt Senha123) -G GRP_VEN
+passwd carlos -e
+
+useradd Roberto -c "roberto" -s /bin/bash -m -p $(openssl passwd -crypt Senha123) -G GRP_VEN
+passwd carlos -e
+
+useradd josefina -c "Josefina" -s /bin/bash -m -p $(openssl passwd -crypt Senha123) -G GRP_SEC
+passwd carlos -e
+
+useradd amanda -c "Amanda" -s /bin/bash -m -p $(openssl passwd -crypt Senha123) -G GRP_VEN
+passwd carlos -e
+
+useradd rogerio -c "Rogerio" -s /bin/bash -m -p $(openssl passwd -crypt Senha123) -G GRP_VEN
+passwd carlos -e
+
+
+//
