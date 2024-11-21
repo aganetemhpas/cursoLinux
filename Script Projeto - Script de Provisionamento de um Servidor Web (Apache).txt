@@ -1,40 +1,23 @@
-// Criando Diretórios
 
-mkdir publico adm ven sec
+#!/bin/bash
 
-//Criando Grupos
+echo "Atualizando Servidor"
+apt-get upadate
+apt-get upgrade -y
 
-groupadd GRP_ADM GRP_VEN GRP_SEC
+echo "Instalando Apache"
+apt-get install apache2 -y
 
+echo "Instalando Unzip"
+apt-get install unzip -y
+  
+echo "Acessando a pasta tem"
+cd /temp
 
-//Criando usuários e Adiciona no Grupo
+echo "Baixando link do github e descompactando"
+wget https://github.com/denilsonbonatti/linux-site-dio/archive/refs/heads/main.zip
+unzip main.zip
 
-useradd carlos -c "Carlos" -s /bin/bash -m -p $(openssl passwd -crypt Senha123) -G GRP_ADM
-passwd carlos -e
-
-useradd maria -c "Maria" -s /bin/bash -m -p $(openssl passwd -crypt Senha123) -G GRP_ADM
-passwd carlos -e
-
-useradd joao -c "Joao" -s /bin/bash -m -p $(openssl passwd -crypt Senha123) -G GRP_ADM
-passwd carlos -e
-
-useradd debora -c "Debora" -s /bin/bash -m -p $(openssl passwd -crypt Senha123) -G GRP_VEN
-passwd carlos -e
-
-useradd sebastiana -c "Sebastiana" -s /bin/bash -m -p $(openssl passwd -crypt Senha123) -G GRP_VEN
-passwd carlos -e
-
-useradd Roberto -c "roberto" -s /bin/bash -m -p $(openssl passwd -crypt Senha123) -G GRP_VEN
-passwd carlos -e
-
-useradd josefina -c "Josefina" -s /bin/bash -m -p $(openssl passwd -crypt Senha123) -G GRP_SEC
-passwd carlos -e
-
-useradd amanda -c "Amanda" -s /bin/bash -m -p $(openssl passwd -crypt Senha123) -G GRP_VEN
-passwd carlos -e
-
-useradd rogerio -c "Rogerio" -s /bin/bash -m -p $(openssl passwd -crypt Senha123) -G GRP_VEN
-passwd carlos -e
-
-
-//
+echo "Acessando a pasta e movendo para pasta html"
+cd linux-site-dio
+cp -R * /var/www/html/
